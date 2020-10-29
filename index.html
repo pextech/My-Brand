@@ -11,7 +11,7 @@
     <title>ShemaChristian</title>
   </head>
 
-  <body>
+  <body class="main-body">
     <!--===== HEADER =====-->
     <nav class="navbar">
       <div class="brand-title">Shema</div>
@@ -22,12 +22,12 @@
       </a>
       <div class="navbar-links">
         <ul>
-          <li class="item"><a href="#home">Home</a></li>
+          <li class="item"><a href="#">Home</a></li>
           <li class="item"><a href="#about">About</a></li>
           <li class="item"><a href="#projects">Projects</a></li>
-          <li class="item"><a href="#projects">Blog</a></li>
+          <li class="item"><a href="#blogs">Blog</a></li>
           <li class="item"><a href="#contact">Contact</a></li>
-          <a class="nav-btn" href="#Login">Login</a>
+          <a class="nav-btn" href="./Assets/pages/login.html">Login</a>
         </ul>
       </div>
     </nav>
@@ -55,7 +55,7 @@
       </section>
 
       <!-- =====About===== -->
-      <section class="about">
+      <section class="about" id="about">
         <h2 class="about-header">About</h2>
 
         <p class="about-intro">
@@ -65,8 +65,8 @@
 
         <div class="skill-container">
           <div class="design skill">
-            <img class="img-skill" src="./Assets/img/web-design.svg" alt="" />
-            <p class="skill-title">Design</p>
+            <img class="img-skill" src="./Assets/img/designer.svg" alt="" />
+            <h2 class="skill-title">Design</h2>
             <ul>
               <li>Figma</li>
               <li>Adobe XD</li>
@@ -76,7 +76,7 @@
           </div>
           <div class="frontend skill">
             <img class="img-skill" src="./Assets/img/frontend.svg" alt="" />
-            <p class="skill-title">Front-End</p>
+            <h2 class="skill-title">Front-End</h2>
             <ul>
               <li>HTML</li>
               <li>CSS</li>
@@ -84,8 +84,8 @@
             </ul>
           </div>
           <div class="backend skill">
-            <img class="img-skill" src="./Assets/img/backend.svg" alt="" />
-            <p class="skill-title">Back-End</p>
+            <img class="img-skill" src="./Assets/img/mentor.svg" alt="" />
+            <h2 class="skill-title">Back-End</h2>
             <ul>
               <li>Node</li>
               <li>Express</li>
@@ -95,7 +95,7 @@
           </div>
           <div class="Testing skill">
             <img class="img-skill" src="./Assets/img/test.svg" alt="" />
-            <p class="skill-title">Testing</p>
+            <h2 class="skill-title">Testing</h2>
             <ul>
               <li>Mocha</li>
               <li>Jest</li>
@@ -106,11 +106,11 @@
 
       <!-- Project page -->
 
-      <h2 class="project-header">Project</h2>
-
-      <p class="project-intro">Different Project I worked on</p>
       <!-- Slideshow container -->
-      <section class="project">
+      <section class="project" id="projects">
+        <h2 class="project-header">Project</h2>
+
+        <p class="project-intro">Different Project I worked on</p>
         <div class="slideshow-container">
           <!-- Full-width images with number and caption text -->
           <div class="mySlides fade">
@@ -162,7 +162,7 @@
       </section>
 
       <!-- Blog -->
-      <section class="blog">
+      <section class="blog" id="blogs">
         <h2 class="blog-header">Blog</h2>
 
         <p class="blog-intro">My Recent blog posts</p>
@@ -312,7 +312,7 @@
       </section>
 
       <!-- contact page -->
-      <section class="contact">
+      <section class="contact" id="contact">
         <h2 class="contact-header">Contact</h2>
 
         <p class="contact-intro">Don't leave without saying Hey</p>
