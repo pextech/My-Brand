@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <title>Create Post</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <h2>Shema</h2>
+        </div>
+        <div class="nav-user">
+          <i class="fas fa-user"></i>
+          <h4>Shema christian</h4>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="left">
+        <ul>
+          <li><a href="#">Manage Post</a></li>
+          <li><a href="#">Manage User</a></li>
+        </ul>
+      </section>
+      <section class="right">
+        <div class="post">
+          <div class="btn">
+            <a href="#">Add post</a>
+            <a href="#">Manage post</a>
+          </div>
+          <h2 class="post-title">Create Post</h2>
+          <form action="#">
+            <h4>Title:</h4>
+            <input type="text" placeholder="Blog title" class="contact-input" />
+            <h4>Body:</h4>
+            <textarea
+              class="contact-input"
+              name="content"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+            <h4>Image:</h4>
+            <input class="contact-input" type="file" placeholder="image" />
+          </form>
+        </div>
+      </section>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js"
+      integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/admin.js"></script>
+    <script>
+      CKEDITOR.replace("content");
+      CKEDITOR.config.width = 800;
+      CKEDITOR.config.resize_enabled = false;
+    </script>
+  </body>
+</html>
