@@ -98,7 +98,7 @@ img {
 }
 
 .home {
-  height: 70vh;
+  height: 40vh;
   margin: 10rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -361,7 +361,7 @@ span {
 
 .blog_wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 2rem;
   width: 90%;
   max-width: 1100px;
@@ -712,6 +712,34 @@ form {
   border-color: var(--second-color);
 }
 
+.subscribe_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+
+.subscribe_field form {
+  border: 1px solid firebrick;
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.subscribe_btn {
+  padding: 0.2rem 1rem;
+  background: var(--first-color);
+  color: white;
+  font-weight: bold;
+  border-radius: 0.8rem;
+}
+
+.subscribe_btn:hover {
+  background: var(--second-color);
+}
+
 @media screen and (max-width: 1050px) {
   .container {
     grid-gap: 5rem;
@@ -769,6 +797,7 @@ form {
     display: flex;
   }
   .home {
+    height: 70vh;
     display: flex;
     flex-direction: column-reverse;
     margin-top: 0;
@@ -801,5 +830,8 @@ form {
 
   .login-content {
     justify-content: center;
+  }
+  .blog_wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }

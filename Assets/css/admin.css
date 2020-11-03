@@ -3,7 +3,7 @@
   --second-color: #141e30;
   --third-color: #0079bf;
   --fourth-color: #141e30;
-  --fifth-color: #3bacee;
+  --fifth-color: #368dc0;
 }
 * {
   margin: 0;
@@ -127,4 +127,43 @@ main {
   font-size: 1rem;
   padding: 1rem;
   margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 760px) {
+  main {
+    display: block;
+  }
+  .right {
+    padding: 2rem 1rem;
+  }
+  .left {
+    display: none;
+  }
+  .content-table thead {
+    display: none;
+  }
+  .content-table tr,
+  .content-table td {
+    display: block;
+  }
+
+  .content-table tr:not(:last-child) {
+    border-bottom: 5px solid #5ca0c3;
+  }
+
+  .content-table td {
+    padding-left: 54%;
+    position: relative;
+  }
+
+  .content-table td::before {
+    position: absolute;
+    padding: 5px;
+    left: 0;
+    bottom: 0;
+    width: 45%;
+    content: attr(data-col-title);
+    font-weight: bold;
+    background-color: #f3f6fa;
+  }
 }

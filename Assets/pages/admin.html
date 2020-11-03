@@ -34,23 +34,24 @@
       <section class="right">
         <div class="post">
           <div class="btn">
-            <a href="#">Add post</a>
+            <a href="./create.html">Add post</a>
             <a href="#">Manage post</a>
           </div>
-          <h2 class="post-title">Manage Posts</h2>
-          <table class="content-table" bordered="2px">
+          <table class="content-table">
             <thead>
-              <th>N</th>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Action</th>
+              <tr>
+                <th>N</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Action</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
-                <td>This is post one</td>
-                <td>RedHacker</td>
-                <td>
+                <td data-col-title="N">1</td>
+                <td data-col-title="Title">This is post one</td>
+                <td data-col-title="Author">RedHacker</td>
+                <td data-col-title="Action">
                   <ul class="action-btn">
                     <li class="edit">
                       <a href="#"><i class="far fa-edit"></i></a>
@@ -65,10 +66,10 @@
                 </td>
               </tr>
               <tr>
-                <td>2</td>
-                <td>This is post two</td>
-                <td>Mansur issa</td>
-                <td>
+                <td data-col-title="N">2</td>
+                <td data-col-title="Title">This is post two</td>
+                <td data-col-title="Author">Mansur issa</td>
+                <td data-col-title="Action">
                   <ul class="action-btn">
                     <li class="edit">
                       <a href="#"><i class="far fa-edit"></i></a>
@@ -83,10 +84,10 @@
                 </td>
               </tr>
               <tr>
-                <td>3</td>
-                <td>This is post Three</td>
-                <td>Shema Christian</td>
-                <td>
+                <td data-col-title="N">3</td>
+                <td data-col-title="Title">This is post Three</td>
+                <td data-col-title="Author">Shema Christian</td>
+                <td data-col-title="Action">
                   <ul class="action-btn">
                     <li class="edit">
                       <a href="#"><i class="far fa-edit"></i></a>
