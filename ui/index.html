@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>ShemaChristian</title>
   </head>
 
@@ -27,7 +27,7 @@
           <li class="item"><a href="#projects">Projects</a></li>
           <li class="item"><a href="#blogs">Blog</a></li>
           <li class="item"><a href="#contact">Contact</a></li>
-          <a class="nav-btn" href="./Assets/pages/login.html">Login</a>
+          <a class="nav-btn" href="./pages/login.html">Login</a>
         </ul>
       </div>
     </nav>
@@ -52,7 +52,7 @@
         </div>
 
         <div class="home-img">
-          <img src="./Assets/img/limg.jpg" alt="" />
+          <img src="./img/limg.jpg" alt="" />
         </div>
       </section>
 
@@ -67,7 +67,7 @@
 
         <div class="skill-container">
           <div class="design skill">
-            <img class="img-skill" src="./Assets/img/designer.svg" alt="" />
+            <img class="img-skill" src="./img/designer.svg" alt="" />
             <h2 class="skill-title">Design</h2>
             <ul>
               <li>Figma</li>
@@ -77,7 +77,7 @@
             </ul>
           </div>
           <div class="frontend skill">
-            <img class="img-skill" src="./Assets/img/frontend.svg" alt="" />
+            <img class="img-skill" src="./img/frontend.svg" alt="" />
             <h2 class="skill-title">Front-End</h2>
             <ul>
               <li>HTML</li>
@@ -86,7 +86,7 @@
             </ul>
           </div>
           <div class="backend skill">
-            <img class="img-skill" src="./Assets/img/mentor.svg" alt="" />
+            <img class="img-skill" src="./img/mentor.svg" alt="" />
             <h2 class="skill-title">Back-End</h2>
             <ul>
               <li>Node</li>
@@ -96,7 +96,7 @@
             </ul>
           </div>
           <div class="Testing skill">
-            <img class="img-skill" src="./Assets/img/test.svg" alt="" />
+            <img class="img-skill" src="./img/test.svg" alt="" />
             <h2 class="skill-title">Testing</h2>
             <ul>
               <li>Mocha</li>
@@ -116,7 +116,7 @@
         <div class="slideshow-container">
           <!-- Full-width images with number and caption text -->
           <div class="mySlides fade">
-            <img src="./Assets/img/todolistapp.png" style="width: 100%" />
+            <img src="./img/todolistapp.png" style="width: 100%" />
             <div class="text">
               <h2>Todo App</h2>
               <p class="text-paragraph">
@@ -127,7 +127,7 @@
           </div>
 
           <div class="mySlides fade">
-            <img src="./Assets/img/storyapp.png" style="width: 100%" />
+            <img src="./img/storyapp.png" style="width: 100%" />
             <div class="text">
               <h2>Story App</h2>
               <p class="text-paragraph">
@@ -138,7 +138,7 @@
           </div>
 
           <div class="mySlides fade">
-            <img src="./Assets/img/weatherapp.png" />
+            <img src="./img/weatherapp.png" />
             <div class="text">
               <h2>Weather App</h2>
               <p class="text-paragraph">
@@ -172,7 +172,7 @@
         <div class="blog_wrapper">
           <div class="blog_container">
             <div class="blog_img">
-              <img src="./Assets/img/asking.jpg" alt="" />
+              <img src="./img/asking.jpg" alt="" />
             </div>
             <div class="blog_content">
               <div class="header_blog">
@@ -202,7 +202,7 @@
           </div>
           <div class="blog_container">
             <div class="blog_img">
-              <img src="./Assets/img/being_ahacker.jpg" alt="" />
+              <img src="./img/being_ahacker.jpg" alt="" />
             </div>
             <div class="blog_content">
               <div class="header_blog">
@@ -211,9 +211,7 @@
               </div>
               <div class="main_blog">
                 <h2>
-                  <a href="./Assets/pages/single_page.html"
-                    >How To Become A Hacker</a
-                  >
+                  <a href="./pages/single_page.html">How To Become A Hacker</a>
                 </h2>
                 <p class="min_content">
                   The Jargon File contains a bunch of definitions of the term
@@ -231,7 +229,7 @@
           </div>
           <div class="blog_container">
             <div class="blog_img">
-              <img src="./Assets/img/learning.jpg" alt="" />
+              <img src="./img/learning.jpg" alt="" />
             </div>
             <div class="blog_content">
               <div class="header_blog">
@@ -256,7 +254,7 @@
           </div>
           <div class="blog_container">
             <div class="blog_img">
-              <img src="./Assets/img/revenge.jpg" alt="" />
+              <img src="./img/revenge.jpg" alt="" />
             </div>
             <div class="blog_content">
               <div class="header_blog">
@@ -284,7 +282,7 @@
           </div>
           <div class="blog_container">
             <div class="blog_img">
-              <img src="./Assets/img/wizard.jpg" alt="" />
+              <img src="./img/wizard.jpg" alt="" />
             </div>
             <div class="blog_content">
               <div class="header_blog">
@@ -338,19 +336,43 @@
           </form>
         </div>
       </section>
-      <!-- <section class="subscribe">
+    </main>
+
+    <footer class="brand_footer">
+      <!-- subscribe -->
+      <section class="subscribe">
         <div class="subscribe_header">
           <h3>Subsribe To Mail List</h3>
           <p>Your email address will not be published.</p>
+          <a href="#bg-modal" id="subscribe_btn" class="subscribe_btn"
+            >Subscribe</a
+          >
         </div>
-        <div class="subscribe_field">
-          <form action="">
-            <input type="email" placeholder="Email" />
-            <a href="#" class="subscribe_btn">Subscribe</a>
-          </form>
+        <div class="bg-modal" id="bg-modal">
+          <div class="modal-contents">
+            <div class="close">+</div>
+            <form action="">
+              <input type="text" placeholder="Name" />
+              <input type="email" placeholder="E-Mail" />
+              <a href="#" class="submit">Submit</a>
+            </form>
+          </div>
         </div>
-      </section> -->
-    </main>
-    <script src="./Assets/js/main.js"></script>
+      </section>
+
+      <!-- rights -->
+      <section class="rights">
+        <h1>Shema</h1>
+        <div class="footer-icons">
+          <a href="https://github.com/shemaM" class="footer-icon"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="" class="footer-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="" class="footer-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>2020 copyright All right reserved</p>
+      </section>
+    </footer>
+    <script src="./js/main.js"></script>
   </body>
 </html>

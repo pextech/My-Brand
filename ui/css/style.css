@@ -22,11 +22,12 @@ html {
 .single_post {
   font-family: "Poppins", sans-serif;
   width: 100%;
-  max-width: 80%;
   margin: auto;
 }
 
 .navbar {
+  max-width: 80%;
+  margin: auto;
   z-index: 1;
   position: sticky;
   top: 0;
@@ -98,8 +99,9 @@ img {
 }
 
 .home {
+  max-width: 80%;
   height: 40vh;
-  margin: 10rem 0;
+  margin: 10rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -472,7 +474,7 @@ span {
 }
 
 .comment_post form {
-  width: 70%;
+  max-width: 58rem;
   margin: auto;
 }
 
@@ -556,7 +558,7 @@ span {
   width: 500px;
 }
 
-form {
+.login-content form {
   width: 500px;
 }
 
@@ -712,6 +714,8 @@ form {
   border-color: var(--second-color);
 }
 
+/* subscribe */
+
 .subscribe_header {
   display: flex;
   flex-direction: column;
@@ -719,13 +723,8 @@ form {
   padding: 3rem;
 }
 
-.subscribe_field form {
-  border: 1px solid firebrick;
-  width: 90%;
-  max-width: 800px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
+.subscribe_header a {
+  margin: 2rem 0;
 }
 
 .subscribe_btn {
@@ -740,6 +739,87 @@ form {
   background: var(--second-color);
 }
 
+.bg-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contents {
+  height: 300px;
+  width: 500px;
+  background-color: #f9fafb;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.modal-contents form > input {
+  margin: 15px auto;
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid gray;
+}
+
+.submit {
+  padding: 0.2rem 1rem;
+  background: var(--first-color);
+  color: white;
+  font-weight: bold;
+  border-radius: 0.8rem;
+}
+
+.submit:hover {
+  background: var(--second-color);
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 42px;
+  color: #333;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #666;
+}
+
+.rights {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--Third-color);
+}
+
+.rights h1 {
+  color: #fff;
+  padding: 2rem 0;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.footer-icons a {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.rights p {
+  color: #fff;
+  font-size: 14px;
+}
+.footer-icons a:hover {
+  color: var(--second-color);
+}
 @media screen and (max-width: 1050px) {
   .container {
     grid-gap: 5rem;
@@ -764,7 +844,7 @@ form {
 /* end of login page */
 
 /* media */
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .toggle-button {
     display: flex;
   }

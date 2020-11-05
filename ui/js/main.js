@@ -46,3 +46,14 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "grid";
   dots[slideIndex - 1].className += " active";
 }
+
+
+// popup form for subscribe
+
+document.getElementById('subscribe_btn').addEventListener("click", function() {
+	document.querySelector('.bg-modal').style.display = "flex";
+});
+
+document.querySelector('.close').addEventListener("click", function() {
+	document.querySelector('.bg-modal').style.display = "none";
+});
