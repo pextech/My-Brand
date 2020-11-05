@@ -13,7 +13,7 @@
         <img src="../img/login.svg" />
       </div>
       <div class="login-content">
-        <form action="#" class="login-form">
+        <form id="login-form" class="login-form">
           <img src="../img/boy.svg" />
           <h2 class="title">Welcome</h2>
           <div class="input-div one">
@@ -22,7 +22,8 @@
             </div>
             <div class="input-field">
               <h5>Email</h5>
-              <input type="text" class="input" />
+              <input type="email" id="email" class="input" />
+              <small>Error message</small>
             </div>
           </div>
           <div class="input-div pass">
@@ -31,13 +32,11 @@
             </div>
             <div class="input-field">
               <h5>Password</h5>
-              <input type="password" class="input" />
+              <input type="password" id="password" class="input" />
+              <small>Error message</small>
             </div>
           </div>
-          <a href="./admin.html">
-            <input type="submit" class="form-btn" value="Login"
-          /></a>
-
+          <button type="submit" class="form-btn">Login</button>
           <p class="social-text">Or login with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
