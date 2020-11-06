@@ -180,7 +180,11 @@
                 <p><a href="#">~By Gitego Brian</a></p>
               </div>
               <div class="main_blog">
-                <h2><a href="#">How To Ask Questions The Smart Way</a></h2>
+                <h2>
+                  <a href="./pages/single_page.html"
+                    >How To Ask Questions The Smart Way</a
+                  >
+                </h2>
                 <p class="min_content">
                   If you're reading this document because you need help, and you
                   walk away with the impression you can get it directly from the
@@ -237,7 +241,9 @@
                 <p><a href="#">~By Shema Christian</a></p>
               </div>
               <div class="main_blog">
-                <h2><a href="#">How To Learn Hacking</a></h2>
+                <h2>
+                  <a href="./pages/single_page.html">How To Learn Hacking</a>
+                </h2>
                 <p class="min_content">
                   The “hacking” we'll be talking about in this document is
                   exploratory programming in an open-source environment. If you
@@ -259,7 +265,7 @@
             <div class="blog_content">
               <div class="header_blog">
                 <time>August 20 2020</time>
-                <p><a href="#">~By Mansurissa</a></p>
+                <p><a href="./pages/single_page.html">~By Mansurissa</a></p>
               </div>
               <div class="main_blog">
                 <h2><a href="#">Revenge Of hackers</a></h2>
@@ -290,7 +296,11 @@
                 <p><a href="#">~By Redjanvier</a></p>
               </div>
               <div class="main_blog">
-                <h2><a href="#">How To Become A Linux Wizard</a></h2>
+                <h2>
+                  <a href="./pages/single_page.html"
+                    >How To Become A Linux Wizard</a
+                  >
+                </h2>
                 <p class="min_content">
                   O, Nobly Born: know that the Way to Wizardhood is long, and
                   winding, and Fraught with Risks. Thou must Attune thyself with
@@ -321,18 +331,28 @@
 
         <p class="contact-intro">Don't leave without saying Hey</p>
         <div class="contact-container">
-          <form action="" class="contact-form">
-            <input type="text" placeholder="Name" class="contact-input" />
-            <input type="mail" placeholder="Email" class="contact-input" />
-            <textarea
-              name=""
-              id=""
-              placeholder="Message"
-              cols="0"
-              rows="10"
-              class="contact-input"
-            ></textarea>
-            <input type="button" value="Send" class="contact-button button" />
+          <form id="contact-form" class="contact-form index_form">
+            <div class="contact-form-control">
+              <input type="text" id="name" name="name" placeholder="Name" />
+              <small>Error message</small>
+            </div>
+
+            <div class="contact-form-control">
+              <input type="text" id="email" name="email" placeholder="Email" />
+              <small>Error message</small>
+            </div>
+
+            <div class="contact-form-control">
+              <textarea
+                placeholder="Message"
+                id="message"
+                cols="30"
+                rows="10"
+              ></textarea>
+              <small>Error message</small>
+            </div>
+
+            <button type="submit" class="contact-button button">Send</button>
           </form>
         </div>
       </section>
@@ -351,10 +371,22 @@
         <div class="bg-modal" id="bg-modal">
           <div class="modal-contents">
             <div class="close">+</div>
-            <form action="">
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="E-Mail" />
-              <a href="#00" class="submit">Submit</a>
+            <form action="" id="subscribe-form" class="index_form">
+              <div class="subscribe-form-control">
+                <input type="text" placeholder="Name" id="name" name="name" />
+                <small>Error message</small>
+              </div>
+              <div class="subscribe-form-control">
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                <small>Error message</small>
+              </div>
+
+              <button type="submit" class="submit">Submit</button>
             </form>
           </div>
         </div>

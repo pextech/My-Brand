@@ -13,32 +13,41 @@
     <link rel="stylesheet" href="../css/admin.css" />
   </head>
   <body>
-    <header>
-      <div class="navbar">
-        <div class="logo">
-          <h2>Shema</h2>
-        </div>
-        <div class="nav-user">
-          <i class="fas fa-user"></i>
-          <h4>Shema christian</h4>
-        </div>
-      </div>
-    </header>
+      <header>
+        <nav class="navbar">
+          <div class="brand-title">Shema</div>
+          <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
+          <div class="navbar-links">
+            <ul>
+              <li class="item"><a href="./admin.html">Dashboard</a></li>
+              <li class="item"><a href="./create.html">Create Post</a></li>
+              <li class="item"><a href="./query.html">Queries</a></li>
+                <div class="user_btn">
+                  <i class="fas fa-user"></i>
+                  <a class="nav-btn" href="#">Shema Christian</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
     <main>
       <section class="left">
-        <ul>
-          <li><a href="#">Manage Post</a></li>
-          <li><a href="#">Manage User</a></li>
-        </ul>
+        <div class="left_links">
+          <ul>
+            <li>Likes  <i class="far fa-thumbs-up"></i><span>:0</span></li>
+            <li>Comments  <i class="far fa-comments"></i><span>:0</span></li>
+            <li>Subscribers  <i class="fas fa-eye"></i><span>:0</span></li>
+          </ul>
+        </div>
       </section>
       <section class="right">
         <div class="post">
-          <div class="btn">
-            <a href="#">Add post</a>
-            <a href="#">Manage post</a>
-          </div>
           <h2 class="post-title">Create Post</h2>
-          <form action="#">
+          <form action="#" class="create_form">
             <h4>Title:</h4>
             <input type="text" placeholder="Blog title" class="contact-input" />
             <h4>Body:</h4>
@@ -52,6 +61,9 @@
             <h4>Image:</h4>
             <input class="contact-input" type="file" placeholder="image" />
           </form>
+          <div class="btn">
+            <a href="#">Add post</a>
+          </div>
         </div>
       </section>
     </main>
@@ -63,7 +75,6 @@
     <script src="../js/admin.js"></script>
     <script>
       CKEDITOR.replace("content");
-      CKEDITOR.config.width = 800;
       CKEDITOR.config.resize_enabled = false;
     </script>
   </body>

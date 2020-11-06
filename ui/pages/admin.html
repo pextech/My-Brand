@@ -14,29 +14,40 @@
   </head>
   <body>
     <header>
-      <div class="navbar">
-        <div class="logo">
-          <h2>Shema</h2>
+      <nav class="navbar">
+        <div class="brand-title">Shema</div>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li class="item"><a href="#">Dashboard</a></li>
+            <li class="item"><a href="./create.html">Create Post</a></li>
+            <li class="item"><a href="./query.html">Queries</a></li>
+            <li class="item overview"><a href="#00">Overview</a></li>
+              <div class="user_btn">
+                <i class="fas fa-user"></i>
+                <a class="nav-btn" href="#">Shema Christian</a>
+            </li>
+          </ul>
         </div>
-        <div class="nav-user">
-          <i class="fas fa-user"></i>
-          <h4>Shema christian</h4>
-        </div>
-      </div>
+      </nav>
     </header>
     <main>
       <section class="left">
-        <ul>
-          <li><a href="#">Manage Post</a></li>
-          <li><a href="#">Manage User</a></li>
-        </ul>
+        <div class="left_links">
+          <ul>
+            <li>Likes  <i class="far fa-thumbs-up"></i><span>:0</span></li>
+            <li>Comments  <i class="far fa-comments"></i><span>:0</span></li>
+            <li>Subscribers  <i class="fas fa-eye"></i><span>:0</span></li>
+          </ul>
+        </div>
       </section>
       <section class="right">
+        <h1>Dashboard</h1>
         <div class="post">
-          <div class="btn">
-            <a href="./create.html">Add post</a>
-            <a href="#">Manage post</a>
-          </div>
           <table class="content-table">
             <thead>
               <tr>
@@ -106,5 +117,6 @@
         </div>
       </section>
     </main>
+    <script src="../js/admin.js"></script>
   </body>
 </html>
