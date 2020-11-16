@@ -47,6 +47,14 @@ header {
   color: white;
 }
 
+.logout {
+  margin-left: 2rem;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
 .navbar-links li a {
   padding: 0 1rem;
   display: block;
