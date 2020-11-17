@@ -200,6 +200,18 @@ main {
   margin-bottom: 2rem;
 }
 
+.create_btn {
+  border-radius: 0.2rem;
+  background: var(--fifth-color);
+  padding: 0.5rem;
+  color: white;
+  border: none;
+}
+
+.create_btn:hover {
+  cursor: pointer;
+}
+
 /* query page */
 .message_card {
   margin: 3rem 0;
