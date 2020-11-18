@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <title>Create Post</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+      <header>
+        <nav class="navbar">
+          <div class="brand-title">Shema</div>
+          <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
+          <div class="navbar-links">
+            <ul>
+              <li class="item"><a href="./admin.html">Dashboard</a></li>
+              <li class="item"><a href="./create.html">Create Post</a></li>
+              <li class="item"><a href="./query.html">Queries</a></li>
+                <div class="user_btn">
+                  <i class="fas fa-user"></i>
+                  <a class="nav-btn" href="#">Shema Christian</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    <main>
+      <section class="left">
+        <div class="left_links">
+          <ul>
+            <li>Likes  <i class="far fa-thumbs-up"></i><span>:0</span></li>
+            <li>Comments  <i class="far fa-comments"></i><span>:0</span></li>
+            <li>Subscribers  <i class="fas fa-eye"></i><span>:0</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="right">
+        <div class="post">
+          <h2 class="post-title">Create Post</h2>
+          <form action="#" class="create_form">
+            <h4>Title:</h4>
+            <input type="text" placeholder="Blog title" class="contact-input" />
+            <h4>Body:</h4>
+            <textarea
+              class="contact-input"
+              name="content"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+            <h4>Image:</h4>
+            <input class="contact-input" type="file" placeholder="image" />
+          </form>
+          <div class="btn">
+            <a href="#">Add post</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js"
+      integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/admin.js"></script>
+    <script>
+      CKEDITOR.replace("content");
+      CKEDITOR.config.resize_enabled = false;
+    </script>
+  </body>
+</html>

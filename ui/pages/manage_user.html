@@ -32,30 +32,46 @@
         </ul>
       </section>
       <section class="right">
-        <div class="post">
-          <div class="btn">
-            <a href="#">Add post</a>
-            <a href="#">Manage post</a>
-          </div>
-          <h2 class="post-title">Create Post</h2>
-          <form action="#">
-            <h4>Title:</h4>
-            <input type="text" placeholder="Blog title" class="contact-input" />
-            <h4>Body:</h4>
-            <textarea
-              class="contact-input"
-              name="content"
-              id=""
-              cols="30"
-              rows="10"
-            ></textarea>
-            <h4>Image:</h4>
-            <input class="contact-input" type="file" placeholder="image" />
+        <div class="user_container">
+          <form id="form" class="form">
+            <h2>Create Admin User</h2>
+            <div class="form-control">
+              <label for="username">Username</label>
+              <input type="text" id="username" placeholder="Enter Username" />
+              <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="text" id="email" placeholder="Enter email" />
+              <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+              />
+              <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+              <label for="password2">Password</label>
+              <input
+                type="password"
+                id="password2"
+                placeholder="Enter password again"
+              />
+              <small>Error message</small>
+            </div>
+            <button type="submit">Save User</button>
           </form>
         </div>
       </section>
     </main>
-    <script
+    <!-- <script
       src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js"
       integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA=="
       crossorigin="anonymous"
@@ -65,6 +81,6 @@
       CKEDITOR.replace("content");
       CKEDITOR.config.width = 800;
       CKEDITOR.config.resize_enabled = false;
-    </script>
+    </script> -->
   </body>
 </html>
