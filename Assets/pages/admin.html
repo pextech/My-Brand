@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <h2>Shema</h2>
+        </div>
+        <div class="nav-user">
+          <i class="fas fa-user"></i>
+          <h4>Shema christian</h4>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="left">
+        <ul>
+          <li><a href="#">Manage Post</a></li>
+          <li><a href="#">Manage User</a></li>
+        </ul>
+      </section>
+      <section class="right">
+        <div class="post">
+          <div class="btn">
+            <a href="./create.html">Add post</a>
+            <a href="#">Manage post</a>
+          </div>
+          <table class="content-table">
+            <thead>
+              <tr>
+                <th>N</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-col-title="N">1</td>
+                <td data-col-title="Title">This is post one</td>
+                <td data-col-title="Author">RedHacker</td>
+                <td data-col-title="Action">
+                  <ul class="action-btn">
+                    <li class="edit">
+                      <a href="#"><i class="far fa-edit"></i></a>
+                    </li>
+                    <li class="delete">
+                      <a href="#"><i class="far fa-trash-alt"></i></a>
+                    </li>
+                    <li class="publish">
+                      <a href="#"><i class="fas fa-upload"></i></a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td data-col-title="N">2</td>
+                <td data-col-title="Title">This is post two</td>
+                <td data-col-title="Author">Mansur issa</td>
+                <td data-col-title="Action">
+                  <ul class="action-btn">
+                    <li class="edit">
+                      <a href="#"><i class="far fa-edit"></i></a>
+                    </li>
+                    <li class="delete">
+                      <a href="#"><i class="far fa-trash-alt"></i></a>
+                    </li>
+                    <li class="publish">
+                      <a href="#"><i class="fas fa-upload"></i></a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td data-col-title="N">3</td>
+                <td data-col-title="Title">This is post Three</td>
+                <td data-col-title="Author">Shema Christian</td>
+                <td data-col-title="Action">
+                  <ul class="action-btn">
+                    <li class="edit">
+                      <a href="#"><i class="far fa-edit"></i></a>
+                    </li>
+                    <li class="delete">
+                      <a href="#"><i class="far fa-trash-alt"></i></a>
+                    </li>
+                    <li class="publish">
+                      <a href="#"><i class="fas fa-upload"></i></a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
