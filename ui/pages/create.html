@@ -13,34 +13,35 @@
     <link rel="stylesheet" href="../css/admin.css" />
   </head>
   <body>
-      <header>
-        <nav class="navbar">
-          <div class="brand-title">Shema</div>
-          <a href="#" class="toggle-button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </a>
-          <div class="navbar-links">
-            <ul>
-              <li class="item"><a href="./admin.html">Dashboard</a></li>
-              <li class="item"><a href="./create.html">Create Post</a></li>
-              <li class="item"><a href="./query.html">Queries</a></li>
-                <div class="user_btn">
-                  <i class="fas fa-user"></i>
-                  <a class="nav-btn" href="#">Shema Christian</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+    <header>
+      <nav class="navbar">
+        <div class="brand-title">Shema</div>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li class="item"><a href="./admin.html">Dashboard</a></li>
+            <li class="item"><a href="./create.html">Create Post</a></li>
+            <li class="item"><a href="./query.html">Queries</a></li>
+            <div class="user_btn">
+              <i class="fas fa-user"></i>
+              <a class="nav-btn" href="#">Shema Christian</a>
+            </div>
+            <li class="item"><button class="logout">Logout</button></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <main>
       <section class="left">
         <div class="left_links">
           <ul>
-            <li>Likes  <i class="far fa-thumbs-up"></i><span>:0</span></li>
-            <li>Comments  <i class="far fa-comments"></i><span>:0</span></li>
-            <li>Subscribers  <i class="fas fa-eye"></i><span>:0</span></li>
+            <li>Likes <i class="far fa-thumbs-up"></i><span>:0</span></li>
+            <li>Comments <i class="far fa-comments"></i><span>:0</span></li>
+            <li>Subscribers <i class="fas fa-eye"></i><span>:0</span></li>
           </ul>
         </div>
       </section>
@@ -48,34 +49,64 @@
         <div class="post">
           <h2 class="post-title">Create Post</h2>
           <form action="#" class="create_form">
+            <h4>Author</h4>
+            <input
+              class="contact-input"
+              type="text"
+              name="author"
+              id="author"
+              placeholder="your name"
+            />
             <h4>Title:</h4>
-            <input type="text" placeholder="Blog title" class="contact-input" />
+            <input
+              type="text"
+              placeholder="Blog title"
+              id="title"
+              class="contact-input"
+            />
             <h4>Body:</h4>
             <textarea
               class="contact-input"
               name="content"
-              id=""
+              id="content"
               cols="30"
               rows="10"
             ></textarea>
             <h4>Image:</h4>
-            <input class="contact-input" type="file" placeholder="image" />
+            <input
+              class="contact-input"
+              id="image"
+              type="file"
+              placeholder="image"
+            />
+            <button class="create_btn">Add Post</button>
           </form>
-          <div class="btn">
+          <!-- <div class="btn">
             <a href="#">Add post</a>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>
-    <script
+    <!-- <script
       src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js"
       integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA=="
       crossorigin="anonymous"
-    ></script>
-    <script src="../js/admin.js"></script>
-    <script>
+    ></script> -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+    <script src="../js/firebaseInit.js"></script>
+    <!-- <script>
       CKEDITOR.replace("content");
       CKEDITOR.config.resize_enabled = false;
-    </script>
+    </script> -->
+    <script src="../js/create.js"></script>
+
+    <script src="../js/admin.js"></script>
   </body>
 </html>

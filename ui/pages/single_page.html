@@ -33,54 +33,76 @@
       </div>
     </nav>
     <main class="single_main_section">
-      <div class="post_wrapper">
-        <div class="post_header">
-          <h1>How To Become A Hacker:</h1>
-          <div class="post_author_name">
-            <time>August 20, 2020</time>
-            <p><a href="#">~By Shema christian</a></p>
+      <div class="whole_wrapper">
+        <div class="post_wrapper">
+          <div class="post_header">
+            <h1>How To Become A Hacker:</h1>
+            <div class="post_author_name">
+              <time>August 20, 2020</time>
+              <p><a href="#">~By Shema christian</a></p>
+            </div>
           </div>
-        </div>
-        <div class="post_content">
-          <div class="post_img">
-            <img src="../img/being_ahacker.jpg" alt="" />
-          </div>
-          <div class="post_text">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas
-              doloremque maiores delectus dolores magnam dolor placeat culpa
-              exercitationem consectetur voluptates quidem, hic iure itaque nam
-              perferendis temporibus nisi esse, maxime incidunt! Accusamus
-              laborum obcaecati ducimus ratione animi. Totam, quasi repellendus!
-              Vero repellendus corporis at aperiam itaque aliquam voluptate
-              natus dolore iure porro tempora iusto enim, quasi omnis neque
-              consequuntur, nam illum ipsam? Repudiandae dignissimos officiis
-              accusantium earum ipsa! Repellat ducimus delectus, in error harum
-              nostrum suscipit cum alias voluptatum obcaecati maiores dolor
-              perferendis inventore quam dolores iste voluptate, eaque
-              aspernatur atque vel distinctio. Iste optio rerum, doloribus
-              fugiat error cum eos odit animi accusamus. Saepe voluptate ratione
-              earum eos nostrum perspiciatis minima autem expedita, dolorum
-              facere voluptatum, ipsum, accusamus possimus. Rerum quaerat
-              repellat recusandae soluta provident temporibus doloribus possimus
-              enim nesciunt rem ut beatae, architecto veniam dolorum laudantium.
-              Tempore voluptatibus, aut adipisci ipsa, quidem cum a maiores
-              iusto optio eveniet quod quasi. Laborum alias magnam, molestias
-              vel voluptates similique eos cum quia libero necessitatibus
-              exercitationem, dicta pariatur nulla inventore mollitia
-              perspiciatis nam ipsa minus impedit. Delectus id eos dignissimos
-              doloribus atque harum fugiat ipsa ipsum sint optio quod facere
-              ratione, quis provident totam alias tempore soluta doloremque ex.
-              Dolor, sapiente.
-            </p>
+          <div class="post_content">
+            <div class="post_img">
+              <img src="../img/being_ahacker.jpg" alt="" />
+            </div>
+            <div class="post_text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas
+                doloremque maiores delectus dolores magnam dolor placeat culpa
+                exercitationem consectetur voluptates quidem, hic iure itaque
+                nam perferendis temporibus nisi esse, maxime incidunt! Accusamus
+                laborum obcaecati ducimus ratione animi. Totam, quasi
+                repellendus! Vero repellendus corporis at aperiam itaque aliquam
+                voluptate natus dolore iure porro tempora iusto enim, quasi
+                omnis neque consequuntur, nam illum ipsam? Repudiandae
+                dignissimos officiis accusantium earum ipsa! Repellat ducimus
+                delectus, in error harum nostrum suscipit cum alias voluptatum
+                obcaecati maiores dolor perferendis inventore quam dolores iste
+                voluptate, eaque aspernatur atque vel distinctio. Iste optio
+                rerum, doloribus fugiat error cum eos odit animi accusamus.
+                Saepe voluptate ratione earum eos nostrum perspiciatis minima
+                autem expedita, dolorum facere voluptatum, ipsum, accusamus
+                possimus. Rerum quaerat repellat recusandae soluta provident
+                temporibus doloribus possimus enim nesciunt rem ut beatae,
+                architecto veniam dolorum laudantium. Tempore voluptatibus, aut
+                adipisci ipsa, quidem cum a maiores iusto optio eveniet quod
+                quasi. Laborum alias magnam, molestias vel voluptates similique
+                eos cum quia libero necessitatibus exercitationem, dicta
+                pariatur nulla inventore mollitia perspiciatis nam ipsa minus
+                impedit. Delectus id eos dignissimos doloribus atque harum
+                fugiat ipsa ipsum sint optio quod facere ratione, quis provident
+                totam alias tempore soluta doloremque ex. Dolor, sapiente.
+              </p>
+            </div>
           </div>
         </div>
       </div>
       <section class="comment_singlePage">
-        <form action="">
+        <div class="comment_container">
+          <div class="comment_card">
+            <h3>Gitego Brian</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nihil
+              possimus, autem culpa neque dolores amet mollitia nisi
+              necessitatibus quo fugit. Vitae dolores eos sit, numquam doloribus
+              quam provident eveniet.
+            </p>
+          </div>
+        </div>
+        <form action="" class="comment_form">
           <h1>Leave a message</h1>
           <div class="post_input_field">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea
+              name=""
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder="Message"
+            ></textarea>
+          </div>
+          <div class="post_input_field">
+            <input name="" type="text" id="name" placeholder="Name" />
           </div>
           <button type="submit">Post Message</button>
         </form>
@@ -97,6 +119,14 @@
       </div>
       <p>2020 copyright All right reserved</p>
     </section>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+    <script src="../js/firebaseInit.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/singlepage.js"></script>
   </body>
 </html>

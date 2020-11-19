@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Query</title>
-    <link rel="stylesheet" href="../css/admin.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="../css/admin.css" />
   </head>
   <body>
     <header>
@@ -26,7 +26,6 @@
             <li class="item"><a href="./admin.html">Dashboard</a></li>
             <li class="item"><a href="./create.html">Create Post</a></li>
             <li class="item"><a href="./query.html">Queries</a></li>
-            <li class="item overview"><a href="#00">Overview</a></li>
             <div class="user_btn">
               <i class="fas fa-user"></i>
               <a class="nav-btn" href="#">Shema Christian</a>
@@ -47,50 +46,67 @@
         </div>
       </section>
       <section class="right">
-        <h1>Messages from Contact</h1>
-        <div class="message_container">
-          <div class="message_card">
-            <h3>Nsabimana Issa</h3>
-            <a href="#00">mansurissa@gmail.com</a>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nihil
-              possimus, autem culpa neque dolores amet mollitia nisi
-              necessitatibus quo fugit. Vitae dolores eos sit, numquam doloribus
-              quam provident eveniet.
-            </p>
-          </div>
-          <div class="message_card">
-            <h3>Isingizwe Prophet</h3>
-            <a href="#00">prozed@gmail.com</a>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nihil
-              possimus, autem culpa neque dolores amet mollitia nisi
-              necessitatibus quo fugit. Vitae dolores eos sit, numquam doloribus
-              quam provident eveniet.
-            </p>
-          </div>
-          <div class="message_card">
-            <h3>Gitego Brian</h3>
-            <a href="#00">gitegobrian@gmail.com</a>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nihil
-              possimus, autem culpa neque dolores amet mollitia nisi
-              necessitatibus quo fugit. Vitae dolores eos sit, numquam doloribus
-              quam provident eveniet.
-            </p>
-          </div>
+        <div class="post">
+          <h2 class="post-title">Edit Post</h2>
+          <form action="#" class="create_form">
+            <h4>Author</h4>
+            <input
+              class="contact-input"
+              type="text"
+              name="author"
+              id="author"
+              placeholder="your name"
+            />
+            <h4>Title:</h4>
+            <input
+              type="text"
+              placeholder="Blog title"
+              id="title"
+              class="contact-input"
+            />
+            <h4>Body:</h4>
+            <textarea
+              class="contact-input"
+              name="content"
+              id="content"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <h4>Image:</h4>
+            <input
+              class="contact-input"
+              id="image"
+              type="file"
+              placeholder="image"
+            />
+            <button class="create_btn">Save Post</button>
+          </form>
+          <!-- <div class="btn">
+            <a href="#">Add post</a>
+          </div> -->
         </div>
       </section>
     </main>
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js"
+      integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA=="
+      crossorigin="anonymous"
+    ></script> -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
+             https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
     <script src="../js/firebaseInit.js"></script>
-    <script src="../js/query.js"></script>
+    <!-- <script>
+      CKEDITOR.replace("content");
+      CKEDITOR.config.resize_enabled = false;
+    </script> -->
+    <script src="../js/edit.js"></script>
+
     <script src="../js/admin.js"></script>
   </body>
 </html>
