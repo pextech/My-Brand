@@ -122,3 +122,21 @@ form.forEach((f) => {
     checkEmail(f.email);
   });
 });
+
+//  uploading queries to the firestore
+const contactForm = document.querySelector(".contact-form");
+
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  //  get input values
+  const name = contactForm.name.value;
+  const email = contactForm.email.value;
+  const message = contactForm.message.value;
+
+  db.collection("queries").add({
+    name: name,
+    email: email,
+    message: message,
+  });
+  contactForm.reset();
+});
