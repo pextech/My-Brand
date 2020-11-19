@@ -12,18 +12,16 @@ function remcl() {
   }
 }
 
-console.log("hello");
 inputs.forEach((input) => {
   input.addEventListener("focus", addcl);
   input.addEventListener("blur", remcl);
 });
 
-//  form validation
-
 const form = document.getElementById("login-form");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
+//  form validation
 //  show error
 const showError = (input, message) => {
   const formControl = input.parentElement;
@@ -65,8 +63,30 @@ const checkLength = (input, min) => {
   }
 };
 
+// authentication with github
+
+// const github = document.querySelector(".fa-github");
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log("logged");
+    location = "../pages/admin.html";
+  } else {
+    console.log("no user");
+  }
+});
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkEmail(email);
   checkLength(password, 10);
+  // firebase get user info
+  const email_L = form["email"].value;
+  const password_L = form["password"].value;
+
+  // signup for the user
+  auth.signInWithEmailAndPassword(email_L, password_L).then((cred) => {
+    console.log(cred);
+    form.reset();
+  });
 });
