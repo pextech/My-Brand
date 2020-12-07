@@ -2,15 +2,11 @@ import express from "express";
 import { config } from "dotenv";
 import connectDB from "./config/db";
 
-// load env bars
 config();
-
-// connecting to the database
 connectDB();
 
 const app = express();
 
-// body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
