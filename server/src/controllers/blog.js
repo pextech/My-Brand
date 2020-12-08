@@ -20,6 +20,22 @@ class Blog {
       return res.status(201).json({ success: true, data: post });
     }
   }
+
+  static async getAll(req, res, next) {
+    const post = await Post.find();
+    res.status(200).json({ success: true, count: post.length, data: post });
+  }
+
+  static async getOne(req, res, next) {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return next(
+        new errorResponse(`Post not found with id of ${req.params.id}`, 404)
+      );
+    }
+
+    return res.status(200).json({ success: true, data: post });
+  }
 }
 
 export default Blog;
