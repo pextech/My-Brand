@@ -13,4 +13,3 @@ router
 router.route("/:id").delete(asyncHandler(query.delete));
 
 export default router;
-  
