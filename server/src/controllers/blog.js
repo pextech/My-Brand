@@ -51,6 +51,18 @@ class Blog {
 
     return res.status(200).json({ success: true, data: post });
   }
+
+  static async delete(req, res, next) {
+    const post = await Post.findByIdAndDelete(req.params.id);
+    if (!post) {
+      return next(
+        new errorResponse(`Post not found with id of ${req.params.id}`, 404)
+      );
+    }
+    return res
+      .status(200)
+      .json({ success: true, msg: "successfully delete post" });
+  }
 }
 
 export default Blog;
