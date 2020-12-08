@@ -5,8 +5,11 @@ import { QueryValidator } from "../util/schemes/blog";
 
 const router = express.Router();
 
-router.route("/").post(QueryValidator, asyncHandler(query.create)).get(asyncHandler(query.getAll));
+router
+  .route("/")
+  .post(QueryValidator, asyncHandler(query.create))
+  .get(asyncHandler(query.getAll));
 
-
+router.route("/:id").delete(asyncHandler(query.delete));
 
 export default router;
