@@ -37,6 +37,20 @@ class Blog {
 
     return res.status(200).json({ success: true, data: post });
   }
+
+  static async update(req, res, next) {
+    const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!post) {
+      return next(
+        new errorResponse(`Post not found with id of ${req.params.id}`, 404)
+      );
+    }
+
+    return res.status(200).json({ success: true, data: post });
+  }
 }
 
 export default Blog;
