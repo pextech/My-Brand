@@ -16,4 +16,6 @@ router
   .put(asyncHandler(blog.update))
   .delete(asyncHandler(blog.delete));
 
+router.route("/:id/comments").post(asyncHandler(blog.comment));
+
 export default router;
