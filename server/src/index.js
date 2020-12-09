@@ -1,4 +1,5 @@
 import express from "express";
+import "@babel/polyfill";
 import { config } from "dotenv";
 import connectDB from "./config/db";
 import fileupload from "express-fileupload";
@@ -25,3 +26,5 @@ app.listen(
     `server running in ${process.env.NODE_ENV} at ${process.env.PORT}`
   )
 );
+
+export default app;

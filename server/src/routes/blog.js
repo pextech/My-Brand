@@ -14,8 +14,8 @@ router
 router
   .route("/:id")
   .get(asyncHandler(blog.getOne))
-  .patch(asyncHandler(protect, blog.update))
-  .delete(asyncHandler(blog.delete));
+  .patch(protect, blog.update)
+  .delete(protect, blog.delete);
 
 router.route("/:id/comments").post(asyncHandler(blog.comment));
 
