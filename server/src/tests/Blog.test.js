@@ -1,19 +1,18 @@
 import path from "path";
-import chai, { expect } from "chai";
+import chai, { expect, should } from "chai";
 import chaiHttp from "chai-http";
 import mocha from "mocha";
 import Post from "../modal/blog";
 import server from "../index";
-// import { stub } from "sinon";
-// import uploader from "../config/cloudinary";
+import mockdata from "./mockdata";
+import Comment from "../modal/comment";
+import User from "../modal/user";
+
 const { it, describe, beforeEach, afterEach } = mocha;
 
 chai.should();
 
 chai.use(chaiHttp);
-
-// const images = "https://pixabay.com/vectors/avatar-icon-placeholder-1577909/";
-// stub(uploader, "upload").resolves({ url: images });
 
 const testPost = {
   Author: "issa",
@@ -21,7 +20,7 @@ const testPost = {
   Content: "bla bla bla bla",
 };
 
-describe("Api Endpoints", async () => {
+describe("Api Endpoints", () => {
   beforeEach(async () => {
     await Post.deleteMany({});
   });
@@ -29,151 +28,112 @@ describe("Api Endpoints", async () => {
   afterEach(async () => {
     await Post.deleteMany({});
   });
-  // Test creating post
-  describe("POST shema/blog", () => {
-    it("should create post", (done) => {
-      chai
-        .request(server)
-        .post("/shema/blog")
-        .set()
-        .field("Author", testPost.Author)
-        .field("Title", testPost.Title)
-        .field("Content", testPost.Content)
-        .attach("image", path.resolve(__dirname, "./uploads/test.jpg"))
-        .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.have.property("data");
-          done();
-        });
-    });
 
-    it("should  ask  description of post", (done) => {
-      chai
-        .request(server)
-        .post("/shema/blog")
-        .field("Author", testPost.Author)
-        .field("Titlhje", testPost.Title)
-        .field("Content", testPost.Content)
-        .attach("image", path.resolve(__dirname, "./uploads/test.jpg"))
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.have.property("error");
-          done();
-        });
-    });
-
-    it("should duplicate post", (done) => {
-      chai
-        .request(server)
-        .post("/shema/blog")
-        .field("Author", testPost.Author)
-        .field("Title", testPost.Title)
-        .field("Content", testPost.Content)
-        .attach("image", path.resolve(__dirname, "./uploads/test.jpg"))
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.have.property("error");
-          done();
-        });
-      chai
-        .request(server)
-        .post("/shema/blog")
-        .field("Author", testPost.Author)
-        .field("Title", testPost.Title)
-        .field("Content", testPost.Content)
-        .attach("image", path.resolve(__dirname, "./uploads/test.jpg"))
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.have.property("error");
-          done();
-        });
-    });
+  it("should create post", async () => {
+    const res = await chai
+      .request(server)
+      .post("/shema/blog")
+      .field("Author", testPost.Author)
+      .field("Title", testPost.Title)
+      .field("Content", testPost.Content)
+      .attach("image", path.resolve(__dirname, "./uploads/test.jpg"));
+    res.should.have.status(201);
+    res.body.should.have.property("data");
   });
 
-  // Test Get all post
-  describe("GET shema/blog", () => {
-    it("should get all posts", (done) => {
-      chai
-        .request(server)
-        .get("/shema/blog")
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a("object");
-          done();
-        });
-    });
-    it("should not get all posts", (done) => {
-      chai
-        .request(server)
-        .get("/shema/blog/test")
-        .end((err, res) => {
-          res.should.have.status(500);
-          //   res.body.should.have.property("msg");
-          done();
-        });
-    });
-    // Test get post By ID
-    describe("GET shema/posts/:id", () => {
-      it("should get post by ID", (done) => {
-        Post.create(testPost).then((post) => {
-          chai
-            .request(server)
-            .get(`/shema/blog/${post.id}`)
-            .end((err, res) => {
-              res.should.have.status(200);
-              done();
-            });
-        });
-      });
-
-      it("should not get post by ID", (done) => {
-        chai
-          .request(server)
-          .get(`/shema/blog/penetration`)
-          .end((err, res) => {
-            res.should.have.status(500);
-            done();
-          });
-      });
-    });
+  it("should ask for description post", async () => {
+    const res = await chai
+      .request(server)
+      .post("/shema/blog")
+      .field("Author", testPost.Author)
+      .field("Titlle", testPost.Title)
+      .field("Content", testPost.Content)
+      .attach("image", path.resolve(__dirname, "./uploads/test.jpg"));
+    res.should.have.status(400);
   });
 
-  // Testing comment
-  describe("should add comment", () => {
+  it("Duplicate error", async () => {
+    let res = await chai
+      .request(server)
+      .post("/shema/blog")
+      .field("Author", testPost.Author)
+      .field("Title", testPost.Title)
+      .field("Content", testPost.Content)
+      .attach("image", path.resolve(__dirname, "./uploads/test.jpg"));
+
+    res = await chai
+      .request(server)
+      .post("/shema/blog")
+      .field("Author", testPost.Author)
+      .field("Title", testPost.Title)
+      .field("Content", testPost.Content)
+      .attach("image", path.resolve(__dirname, "./uploads/test.jpg"));
+    res.should.have.status(400);
+  });
+
+  it("should get all Posts", async () => {
+    const res = await chai.request(server).get("/shema/blog");
+
+    res.should.have.status(201);
+    res.body.should.have.property("data");
+  });
+
+  it("should get post by ID", async () => {
+    const post = await Post.create(testPost);
+    await post.save();
+
+    const res = await chai.request(server).get(`/shema/blog/${post.id}`);
+  });
+
+  it("should not get any post", async () => {
+    const res = await chai.request(server).get("/shema/blog/test");
+
+    res.should.have.status(500);
+  });
+
+  it("should add comment", async () => {
     const mockComment = {
       name: "shema christian",
       message: "issa you did a great job",
     };
-    it("should add one comment", (done) => {
-      Post.create(testPost).then((post) => {
+    const post = await Post.create(testPost);
+    await post.save();
+
+    const comment = await Comment.create(mockComment);
+    await comment.save();
+
+    const res = await chai
+      .request(server)
+      .post(`/shema/blog/${post._id}/comments`)
+      .send(mockComment);
+  });
+
+  it("should delete post", (done) => {
+    chai
+      .request(server)
+      .post("/shema/user/register")
+      .send(mockdata.signUpUser)
+      .then(() => {
         chai
           .request(server)
-          .post(`/shema/blog/${post._id}/comments`)
-          .send(mockComment)
-          .end((err, res) => {
-            res.should.have.status(201);
-            res.body.should.have.property("msg");
-            done();
+          .post("/shema/user/login")
+          .send(mockdata.loginUser)
+          .then((res) => {
+            Post.create(testPost).then((post) => {
+              chai
+                .request(server)
+                .set("Bearer", `${res.body.token}`)
+                .delete(`/shema/blog/${post._id}`)
+                .send(mockComment)
+                .end((err, res) => {
+                  res.should.have.status(200);
+                  res.body.should.have.property("msg");
+                  done();
+                });
+              s;
+            });
           });
       });
-    });
-
-    // it("should return error ", (done) => {
-    //   Post.create(testPost).then((post) => {
-    //     chai
-    //       .request(server)
-    //       .post(`/shema/posts/${post._id}/comments`)
-    //       .send(mockComment.name)
-    //       .end((err, res) => {
-    //         if (err) {
-    //           throw err;
-    //         }
-    //         console.log(res);
-    //         res.should.have.status(400);
-    //         res.body.should.have.property("error");
-    //       });
-    //     done();
-    //   });
-    // });
+    done();
   });
 });

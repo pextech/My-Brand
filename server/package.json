@@ -4,9 +4,9 @@
   "description": "mybrand api",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha  --timeout 100000 ./src/tests/**.test.js --require @babel/register --exit",
+    "test": "NODE_ENV=test mocha  --timeout 10000000 ./src/tests/**.test.js --require @babel/register --exit",
     "start": "NODE_ENV=production babel-node index",
-    "dev": "npx nodemon --exec babel-node index",
+    "dev": "npx nodemon --exec babel-node src",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "cover": "nyc --reporter=html --reporter=text npm test"
   },

@@ -2,39 +2,29 @@ import path from "path";
 import chai, { expect } from "chai";
 import chaiHttp from "chai-http";
 import mocha from "mocha";
-import Post from "../modal/user";
+import User from "../modal/user";
 import server from "../index";
+import mockdata from "./mockdata";
 const { it, describe, beforeEach, afterEach } = mocha;
 
 chai.should();
 
 chai.use(chaiHttp);
 
-const mockUser = {
-  name: "user1",
-  email: "azertshema@gmail.com",
-  password: "kn88chr4!cross1",
-};
-
-const mockLogin = {
-  email: "azertshema@gmail.com",
-  password: "kn88chr4!cross1",
-};
-
 describe("Testing user", () => {
-  //   beforeEach(async () => {
-  //     await Post.deleteMany({});
-  //   });
+  beforeEach(async () => {
+    await User.deleteMany({});
+  });
 
-  //   afterEach(async () => {
-  //     await Post.deleteMany({});
-  //   });
+  afterEach(async () => {
+    await User.deleteMany({});
+  });
 
   it("should register user", (done) => {
     chai
       .request(server)
       .post("/shema/user/register")
-      .send(mockUser)
+      .send(mockdata.signUpUser)
       .end((err, res) => {
         res.should.have.status(200);
         res.body.should.have.property("token");
@@ -45,14 +35,32 @@ describe("Testing user", () => {
   it("should login user", (done) => {
     chai
       .request(server)
+      .post("/shema/user/register")
+      .send(mockdata.signUpUser)
+      .then(() => {
+        chai
+          .request(server)
+          .post("/shema/user/login")
+          .send(mockdata.loginUser)
+          .end((err, res) => {
+            if (err) {
+              throw error;
+            }
+            console.log(res.body);
+            res.should.have.status(200);
+            res.body.should.have.property("token");
+            done();
+          });
+      });
+  });
+  it("should not loginUser", (done) => {
+    chai
+      .request(server)
       .post("/shema/user/login")
-      .send(mockLogin)
+      .send(mockdata.loginUser1)
       .end((err, res) => {
-        if (err) {
-          throw error;
-        }
-        res.should.have.status(200);
-        res.body.should.have.property("token");
+        res.should.have.status(401);
+        // res.body.should.have.property("token");
         done();
       });
   });
