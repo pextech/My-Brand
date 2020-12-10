@@ -6,4 +6,5 @@ export const joiResponse = (req, res, schema, next) => {
     return next(
       new errorResponse(error.details[0].message.replace(/\"/g, ""), 404)
     );
+  next();
 };
