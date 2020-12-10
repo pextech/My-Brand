@@ -1,7 +1,7 @@
 import uploader from "../config/cloudinary";
 import Post from "../modal/blog";
 
-class blog {
+class Blog {
   static async create(req, res, next) {
     const post = await Post.create({
       ...req.body,
@@ -22,4 +22,4 @@ class blog {
   }
 }
 
-export default blog;
+export default Blog;
