@@ -1,6 +1,7 @@
 import uploader from "../config/cloudinary";
 import errorResponse from "../util/errorResponse";
 import Post from "../modal/blog";
+import Comment from "../modal/comment";
 
 class Blog {
   static async create(req, res, next) {
