@@ -13,6 +13,7 @@ router
 router
   .route("/:id")
   .get(asyncHandler(blog.getOne))
-  .put(asyncHandler(blog.update));
+  .put(asyncHandler(blog.update))
+  .delete(asyncHandler(blog.delete));
 
 export default router;
