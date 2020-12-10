@@ -6,7 +6,6 @@ import asyncHandler from "../middlewares/async";
 config();
 
 const { MONGO_URI, NODE_ENV, MONGO_URI_TEST } = process.env;
-console.log(process.env.NODE_ENV);
 
 const connectDB = asyncHandler(async () => {
   const conn = await mongoose.connect(
