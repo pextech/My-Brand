@@ -5,6 +5,10 @@ import { blogValidator } from "../middlewares/validators";
 
 const router = express.Router();
 
-router.route("/").post(blogValidator, asyncHandler(blog.create));
+router
+  .route("/")
+  .post(blogValidator, asyncHandler(blog.create))
+  .get(asyncHandler(blog.getAll));
+router.route("/:id").get(blog.getOne);
 
 export default router;
