@@ -9,6 +9,10 @@ router
   .route("/")
   .post(blogValidator, asyncHandler(blog.create))
   .get(asyncHandler(blog.getAll));
-router.route("/:id").get(blog.getOne);
+
+router
+  .route("/:id")
+  .get(asyncHandler(blog.getOne))
+  .put(asyncHandler(blog.update));
 
 export default router;
