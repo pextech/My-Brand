@@ -1,7 +1,7 @@
 import express from "express";
 import blog from "../controllers/blog";
 import asyncHandler from "../middlewares/async";
-import { blogValidator } from "../middlewares/validators";
+import { blogValidator } from "../util/schemes/blog";
 
 const router = express.Router();
 

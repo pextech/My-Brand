@@ -1,11 +1,10 @@
-import Joi from "joi";
-import { joiResponse } from "../util/joiresponse";
+import errorResponse from "../util/errorResponse";
 
-export const blogValidator = (req, res, next) => {
-  const schema = Joi.object({
-    Author: Joi.string().required(),
-    Title: Joi.string().min(5).max(25).required(),
-    Content: Joi.string().min(10).required(),
-  });
-  joiResponse(req, res, schema, next);
+export const joiResponse = (req, res, schema, next) => {
+  const { error } = schema.validate(req.body);
+  if (error)
+    return next(
+      new errorResponse(error.details[0].message.replace(/\"/g, ""), 404)
+    );
+  next();
 };
