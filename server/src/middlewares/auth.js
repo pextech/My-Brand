@@ -6,29 +6,19 @@ import { config } from "dotenv";
 
 config();
 
-exports.protect = asyncHandler(async (req, res, next) => {
-  let token;
+exports.protect = async (req, res, next) => {
+  const token = req.headers.authorization.split(" ")[1];
 
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
-    // Set token from Bearer token in header
-    token = req.headers.authorization.split(" ")[1];
-  }
-  // Make sure token exists
   if (!token) {
     return next(new errorResponse("Not authorized to access this route", 401));
   }
 
   try {
-    // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
 
-    req.user = await User.findById(decoded.id);
-
-    next();
+    return next();
   } catch (err) {
     return next(new errorResponse("Not authorized to access this route", 401));
   }
-});
+};

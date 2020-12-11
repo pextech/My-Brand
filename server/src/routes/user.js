@@ -5,7 +5,9 @@ import { registerValidator, loginValidator } from "../util/schemes/user";
 
 const router = express.Router();
 
-router.route("/register").post(registerValidator, asyncHandler(user.register));
-router.route("/login").post(loginValidator, asyncHandler(user.login));
+router
+  .route("/user/register")
+  .post(registerValidator, asyncHandler(user.register));
+router.route("/user/login").post(loginValidator, asyncHandler(user.login));
 
 export default router;

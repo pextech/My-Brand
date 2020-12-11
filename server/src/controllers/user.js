@@ -1,5 +1,5 @@
 import Users from "../modal/user";
-import sendTokenResponse from "../helpers/auth";
+import sendTokenResponse from "../util/auth";
 import errorResponse from "../util/errorResponse";
 
 class User {

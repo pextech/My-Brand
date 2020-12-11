@@ -6,8 +6,6 @@ import Post from "../modal/blog";
 import server from "../index";
 import mockdata from "./mockdata";
 import Comment from "../modal/comment";
-import User from "../modal/user";
-import Query from "../modal/query";
 
 const { it, describe, beforeEach, afterEach } = mocha;
 
@@ -33,7 +31,7 @@ describe("Api Endpoints", () => {
   it("should create post", async () => {
     const res = await chai
       .request(server)
-      .post("/shema/blog")
+      .post("/api/v1/blog")
       .field("Author", testPost.Author)
       .field("Title", testPost.Title)
       .field("Content", testPost.Content)
@@ -42,10 +40,10 @@ describe("Api Endpoints", () => {
     res.body.should.have.property("data");
   });
 
-  it("should ask for description post", async () => {
+  it("should ask for Title of post", async () => {
     const res = await chai
       .request(server)
-      .post("/shema/blog")
+      .post("/api/v1/blog")
       .field("Author", testPost.Author)
       .field("Titlle", testPost.Title)
       .field("Content", testPost.Content)
@@ -56,7 +54,7 @@ describe("Api Endpoints", () => {
   it("Duplicate error", async () => {
     let res = await chai
       .request(server)
-      .post("/shema/blog")
+      .post("/api/v1/blog")
       .field("Author", testPost.Author)
       .field("Title", testPost.Title)
       .field("Content", testPost.Content)
@@ -64,7 +62,7 @@ describe("Api Endpoints", () => {
 
     res = await chai
       .request(server)
-      .post("/shema/blog")
+      .post("/api/v1/blog")
       .field("Author", testPost.Author)
       .field("Title", testPost.Title)
       .field("Content", testPost.Content)
@@ -73,7 +71,7 @@ describe("Api Endpoints", () => {
   });
 
   it("should get all Posts", async () => {
-    const res = await chai.request(server).get("/shema/blog");
+    const res = await chai.request(server).get("/api/v1/blog");
 
     res.should.have.status(201);
     res.body.should.have.property("data");
@@ -83,13 +81,13 @@ describe("Api Endpoints", () => {
     const post = await Post.create(testPost);
     await post.save();
 
-    const res = await chai.request(server).get(`/shema/blog/${post.id}`);
+    const res = await chai.request(server).get(`/api/v1/blog/${post.id}`);
   });
 
   it("should not get any post", async () => {
-    const res = await chai.request(server).get("/shema/blog/test");
+    const res = await chai.request(server).get("/api/v1/blog/test");
 
-    res.should.have.status(500);
+    res.should.have.status(404);
   });
 
   it("should add comment", async () => {
@@ -105,23 +103,53 @@ describe("Api Endpoints", () => {
 
     const res = await chai
       .request(server)
-      .post(`/shema/blog/${post._id}/comments`)
+      .post(`/api/v1/blog/${post._id}/comments`)
       .send(mockComment);
   });
 
   it("should add query", async () => {
     const res = await chai
       .request(server)
-      .post("/shema/query")
+      .post("/api/v1/query")
       .send(mockdata.query);
   });
 
-  // it("should delete a post", async () => {
-  //   const post = await Post.create(testPost);
-  //   await post.save();
-  //   const res = await chai
-  //     .request(server)
-  //     .set("authorization", `'Bearer' ${token}`)
-  //     .delete(`/shema/blog/${post._id}`);
-  // });
+  it("should delete a post", async () => {
+    const post = await Post.create(testPost);
+    await post.save();
+
+    const signUp = await chai
+      .request(server)
+      .post("/api/v1/user/register")
+      .send(mockdata.signUpUser);
+
+    const login = await chai
+      .request(server)
+      .post("/shema/user/login")
+      .send(mockdata.loginUser);
+
+    const res = await chai
+      .request(server)
+      .delete(`/api/v1/blog/${post._id}`)
+      .set("authorization", `'Bearer' ${login.token}`);
+  });
+
+  it("should not delete a post", async () => {
+    const post = await Post.create(testPost);
+    await post.save();
+
+    const res = await chai
+      .request(server)
+      .delete(`/api/v1/blog/${post._id}`)
+      .set("authorization", "shema");
+  });
+
+  it("should not found this route", async () => {
+    const res = await chai
+      .request(server)
+      .post("/api/v2/query")
+      .send(mockdata.query);
+    res.should.have.status(404);
+    res.body.should.have.property("msg");
+  });
 });

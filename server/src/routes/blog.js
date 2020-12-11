@@ -1,22 +1,22 @@
 import express from "express";
 import blog from "../controllers/blog";
-import asyncHandler from "../middlewares/async";
 import { blogValidator } from "../util/schemes/blog";
 import { protect } from "../middlewares/auth";
+import asyncHandler from "../middlewares/async";
 
 const router = express.Router();
 
 router
-  .route("/")
-  .post(asyncHandler(blog.create))
+  .route("/blog")
+  .post(blogValidator, asyncHandler(blog.create))
   .get(asyncHandler(blog.getAll));
 
 router
-  .route("/:id")
+  .route("/blog/:id")
   .get(asyncHandler(blog.getOne))
-  .patch(protect, blog.update)
+  .patch(protect, asyncHandler(blog.update))
   .delete(protect, blog.delete);
 
-router.route("/:id/comments").post(asyncHandler(blog.comment));
+router.route("/blog/:id/comments").post(asyncHandler(blog.comment));
 
 export default router;

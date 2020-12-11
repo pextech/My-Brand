@@ -13,11 +13,11 @@ connectDB();
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileupload({ useTempFiles: true }));
-app.use(cookieParser());
 
-app.use("/shema", routes);
+app.use("/", routes);
 app.use(errorHandler);
 
 app.listen(

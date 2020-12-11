@@ -23,7 +23,7 @@ describe("Testing user", () => {
   it("should register user", async () => {
     const res = await chai
       .request(server)
-      .post("/shema/user/register")
+      .post("/api/v1/user/register")
       .send(mockdata.signUpUser);
     res.should.have.status(200);
     res.body.should.have.property("token");
@@ -32,12 +32,12 @@ describe("Testing user", () => {
   it("should login user", async () => {
     const signUp = await chai
       .request(server)
-      .post("/shema/user/register")
+      .post("/api/v1/user/register")
       .send(mockdata.signUpUser);
 
     const login = await chai
       .request(server)
-      .post("/shema/user/login")
+      .post("/api/v1/user/login")
       .send(mockdata.loginUser);
     login.should.have.status(200);
   });
@@ -45,7 +45,7 @@ describe("Testing user", () => {
   it("should not loginUser", async () => {
     const login = await chai
       .request(server)
-      .post("/shema/user/login")
+      .post("/api/v1/user/login")
       .send(mockdata.loginUser);
   });
 });
