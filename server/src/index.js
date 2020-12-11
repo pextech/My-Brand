@@ -2,6 +2,7 @@ import express from "express";
 import { config } from "dotenv";
 import connectDB from "./config/db";
 import fileupload from "express-fileupload";
+import cookieParser from "cookie-parser";
 import routes from "./routes/index";
 import errorHandler from "./middlewares/error";
 
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileupload({ useTempFiles: true }));
+app.use(cookieParser());
 
 app.use("/shema", routes);
 app.use(errorHandler);
