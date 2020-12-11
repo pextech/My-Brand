@@ -20,48 +20,32 @@ describe("Testing user", () => {
     await User.deleteMany({});
   });
 
-  it("should register user", (done) => {
-    chai
+  it("should register user", async () => {
+    const res = await chai
       .request(server)
       .post("/shema/user/register")
-      .send(mockdata.signUpUser)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.have.property("token");
-        done();
-      });
+      .send(mockdata.signUpUser);
+    res.should.have.status(200);
+    res.body.should.have.property("token");
   });
 
-  it("should login user", (done) => {
-    chai
+  it("should login user", async () => {
+    const signUp = await chai
       .request(server)
       .post("/shema/user/register")
-      .send(mockdata.signUpUser)
-      .then(() => {
-        chai
-          .request(server)
-          .post("/shema/user/login")
-          .send(mockdata.loginUser)
-          .end((err, res) => {
-            if (err) {
-              throw error;
-            }
-            console.log(res.body);
-            res.should.have.status(200);
-            res.body.should.have.property("token");
-            done();
-          });
-      });
-  });
-  it("should not loginUser", (done) => {
-    chai
+      .send(mockdata.signUpUser);
+
+    const login = await chai
       .request(server)
       .post("/shema/user/login")
-      .send(mockdata.loginUser1)
-      .end((err, res) => {
-        res.should.have.status(401);
-        // res.body.should.have.property("token");
-        done();
-      });
+      .send(mockdata.loginUser);
+    login.should.have.status(200);
+  });
+
+  it("should not loginUser", async () => {
+    const login = await chai
+      .request(server)
+      .post("/shema/user/login")
+      .send(mockdata.loginUser);
   });
 });

@@ -7,6 +7,7 @@ import server from "../index";
 import mockdata from "./mockdata";
 import Comment from "../modal/comment";
 import User from "../modal/user";
+import Query from "../modal/query";
 
 const { it, describe, beforeEach, afterEach } = mocha;
 
@@ -108,32 +109,19 @@ describe("Api Endpoints", () => {
       .send(mockComment);
   });
 
-  it("should delete post", (done) => {
-    chai
+  it("should add query", async () => {
+    const res = await chai
       .request(server)
-      .post("/shema/user/register")
-      .send(mockdata.signUpUser)
-      .then(() => {
-        chai
-          .request(server)
-          .post("/shema/user/login")
-          .send(mockdata.loginUser)
-          .then((res) => {
-            Post.create(testPost).then((post) => {
-              chai
-                .request(server)
-                .set("Bearer", `${res.body.token}`)
-                .delete(`/shema/blog/${post._id}`)
-                .send(mockComment)
-                .end((err, res) => {
-                  res.should.have.status(200);
-                  res.body.should.have.property("msg");
-                  done();
-                });
-              s;
-            });
-          });
-      });
-    done();
+      .post("/shema/query")
+      .send(mockdata.query);
   });
+
+  // it("should delete a post", async () => {
+  //   const post = await Post.create(testPost);
+  //   await post.save();
+  //   const res = await chai
+  //     .request(server)
+  //     .set("authorization", `'Bearer' ${token}`)
+  //     .delete(`/shema/blog/${post._id}`);
+  // });
 });

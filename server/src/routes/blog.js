@@ -8,7 +8,7 @@ const router = express.Router();
 
 router
   .route("/")
-  .post(blogValidator, asyncHandler(blog.create))
+  .post(asyncHandler(blog.create))
   .get(asyncHandler(blog.getAll));
 
 router

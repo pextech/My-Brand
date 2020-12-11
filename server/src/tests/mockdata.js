@@ -10,9 +10,10 @@ const mockdata = {
     password: "kn88chr4!cross",
   },
 
-  loginUser1: {
+  query: {
+    name: "shema christian",
     email: "azerwtshema@gmail.com",
-    password: "knddfdfrf",
+    password: "knddfdfrsss",
   },
 };
 export default mockdata;
