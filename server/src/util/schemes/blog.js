@@ -12,7 +12,7 @@ export const blogValidator = (req, res, next) => {
 
 export const QueryValidator = (req, res, next) => {
   const schema = Joi.object({
-    name: joi.string().required(),
+    name: Joi.string().required(),
     email: Joi.string().email({ tlds: { allow: false } }),
     message: Joi.string().required(),
   });
