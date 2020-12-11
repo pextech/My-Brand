@@ -9,3 +9,12 @@ export const blogValidator = (req, res, next) => {
   });
   joiResponse(req, res, schema, next);
 };
+
+export const QueryValidator = (req, res, next) => {
+  const schema = Joi.object({
+    name: Joi.string().required(),
+    email: Joi.string().email({ tlds: { allow: false } }),
+    message: Joi.string().required(),
+  });
+  joiResponse(req, res, schema, next);
+};
