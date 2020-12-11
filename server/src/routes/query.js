@@ -5,6 +5,8 @@ import { QueryValidator } from "../util/schemes/blog";
 
 const router = express.Router();
 
-router.route("/").post(QueryValidator, asyncHandler(query.create));
+router.route("/").post(QueryValidator, asyncHandler(query.create)).get(asyncHandler(query.getAll));
+
+
 
 export default router;
