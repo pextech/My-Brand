@@ -6,10 +6,10 @@ import { QueryValidator } from "../util/schemes/blog";
 const router = express.Router();
 
 router
-  .route("/")
+  .route("/query")
   .post(QueryValidator, asyncHandler(query.create))
   .get(asyncHandler(query.getAll));
 
-router.route("/:id").delete(asyncHandler(query.delete));
+router.route("/query/:id").delete(asyncHandler(query.delete));
 
 export default router;

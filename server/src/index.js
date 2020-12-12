@@ -1,4 +1,5 @@
 import express from "express";
+import "@babel/polyfill";
 import { config } from "dotenv";
 import connectDB from "./config/db";
 import fileupload from "express-fileupload";
@@ -12,11 +13,11 @@ connectDB();
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileupload({ useTempFiles: true }));
-app.use(cookieParser());
 
-app.use("/shema", routes);
+app.use("/", routes);
 app.use(errorHandler);
 
 app.listen(
@@ -25,3 +26,5 @@ app.listen(
     `server running in ${process.env.NODE_ENV} at ${process.env.PORT}`
   )
 );
+
+export default app;

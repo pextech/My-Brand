@@ -25,7 +25,7 @@ class Blog {
 
   static async getAll(req, res, next) {
     const post = await Post.find();
-    res.status(200).json({ success: true, count: post.length, data: post });
+    res.status(201).json({ success: true, count: post.length, data: post });
   }
 
   static async getOne(req, res, next) {

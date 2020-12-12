@@ -1,4 +1,5 @@
 import Queries from "../modal/query";
+import errorResponse from "../util/errorResponse";
 
 class Query {
   static async create(req, res, next) {
