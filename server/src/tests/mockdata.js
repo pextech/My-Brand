@@ -12,8 +12,8 @@ const mockdata = {
 
   query: {
     name: "shema christian",
-    email: "azerwtshema@gmail.com",
-    password: "knddfdfrsss",
+    email: "azertshema@gmail.com",
+    message: "great bro",
   },
 };
 export default mockdata;
