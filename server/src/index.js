@@ -6,7 +6,6 @@ import fileupload from "express-fileupload";
 import cookieParser from "cookie-parser";
 import routes from "./routes/index";
 import errorHandler from "./middlewares/error";
-import docRouter from "./documentation";
 
 config();
 connectDB();
@@ -17,8 +16,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileupload({ useTempFiles: true }));
-
-app.get("/api/v1/documentation", docRouter);
 
 app.use("/", routes);
 app.use(errorHandler);
