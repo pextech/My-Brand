@@ -7,13 +7,15 @@ import { config } from "dotenv";
 config();
 
 exports.protect = async (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
-
-  if (!token) {
-    return next(new errorResponse("Not authorized to access this route", 401));
-  }
-
   try {
+    const token = req.headers.authorization.split(" ")[1];
+
+    if (!token) {
+      return next(
+        new errorResponse("Not authorized to access this route", 401)
+      );
+    }
+
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
 

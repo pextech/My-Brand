@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha  --timeout 10000000 ./src/tests/**.test.js --require @babel/register --exit",
-    "start": "NODE_ENV=production babel-node index",
+    "start": "NODE_ENV=production babel-node src",
     "dev": "npx nodemon --exec babel-node src",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "cover": "nyc --reporter=html --reporter=text npm test"
@@ -44,6 +44,8 @@
     "mongo": "^0.1.0",
     "mongoose": "^5.11.4",
     "nyc": "^15.1.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "swagger-jsdoc": "^6.0.0-rc.4",
+    "swagger-ui-express": "^4.1.5"
   }
 }
