@@ -119,19 +119,11 @@ import asyncHandler from "../middlewares/async";
  *   patch:
  *     tags:
  *       - Blogs
- *     components:
- *       securitySchemes:
- *         bearerAuth:
- *           type: http
- *           scheme: bearer
- *           bearerFormat: JWT
- *     security:
- *       - bearerAuth: []
  *     summary: Update a blog
  *     content:
  *       - application/json
  *     parameters:
- *       - name: token
+ *       - name: auth
  *         in: header
  *         required: true
  *       - name: id
@@ -162,12 +154,12 @@ import asyncHandler from "../middlewares/async";
  *   delete:
  *     tags:
  *       - Blogs
- *     security:
- *       - bearerAuth: []
  *     summary: Delete a blog
  *     consumes:
  *       - application/json
  *     parameters:
+ *       - name: auth
+ *         in: header
  *       - name: id
  *         in: path
  *         required: true

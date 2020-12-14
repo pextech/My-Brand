@@ -105,6 +105,8 @@ describe("Api Endpoints", () => {
       .request(server)
       .post(`/api/v1/blog/${post._id}/comments`)
       .send(mockComment);
+    res.should.have.status(201);
+    res.body.should.have.property("msg");
   });
 
   it("should add query", async () => {
@@ -112,6 +114,7 @@ describe("Api Endpoints", () => {
       .request(server)
       .post("/api/v1/query")
       .send(mockdata.query);
+    res.should.have.status(200);
   });
 
   it("should delete a post", async () => {
@@ -131,7 +134,7 @@ describe("Api Endpoints", () => {
     const res = await chai
       .request(server)
       .delete(`/api/v1/blog/${post._id}`)
-      .set("authorization", `'Bearer' ${login.token}`);
+      .set("auth", `'Bearer' ${login.token}`);
   });
 
   it("should not delete a post", async () => {

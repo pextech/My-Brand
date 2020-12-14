@@ -21,7 +21,6 @@ const options = {
     servers: [
       {
         url: "https://shema-brand.herokuapp.com",
-        url: "http://localhost:3000",
       },
     ],
     produces: ["application/json"],

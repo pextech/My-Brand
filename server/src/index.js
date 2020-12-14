@@ -1,6 +1,7 @@
 import express from "express";
 import "@babel/polyfill";
 import { config } from "dotenv";
+import morgan from "morgan";
 import connectDB from "./config/db";
 import fileupload from "express-fileupload";
 import cookieParser from "cookie-parser";
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(fileupload({ useTempFiles: true }));
 
